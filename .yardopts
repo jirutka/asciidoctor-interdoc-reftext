@@ -1,0 +1,6 @@
+--title "Asciidoctor Inter-doc Reference Text"
+--default-return void
+--protected
+--markup markdown
+-
+LICENSE

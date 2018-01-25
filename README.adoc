@@ -1,0 +1,42 @@
+= Asciidoctor Inter-doc Reference Text
+:source-language: shell
+// custom
+:gem-name: asciidoctor-interdoc-reftext
+:gh-name: jirutka/{gem-name}
+:gh-branch: master
+:codacy-id: N/A
+
+ifdef::env-github[]
+image:https://travis-ci.org/{gh-name}.svg?branch={gh-branch}[Build Status, link="https://travis-ci.org/{gh-name}"]
+image:https://api.codacy.com/project/badge/Coverage/{codacy-id}["Test Coverage", link="https://www.codacy.com/app/{gh-name}"]
+image:https://api.codacy.com/project/badge/Grade/{codacy-id}["Codacy Code quality", link="https://www.codacy.com/app/{gh-name}"]
+image:https://img.shields.io/gem/v/{gem-name}.svg?style=flat[Gem Version, link="https://rubygems.org/gems/{gem-name}"]
+image:https://img.shields.io/badge/yard-docs-blue.svg[Yard Docs, link="http://www.rubydoc.info/github/{gh-name}/{gh-branch}"]
+endif::env-github[]
+
+
+TODO
+
+
+== Installation
+
+To install (or update to the latest version):
+
+[source, subs="+attributes"]
+gem install {gem-name}
+
+or to install the latest development version:
+
+[source, subs="+attributes"]
+gem install {gem-name} --pre
+
+
+== Usage
+
+TODO
+
+
+== License
+
+This project is licensed under http://opensource.org/licenses/MIT/[MIT License].
+For the full text of the license, see the link:LICENSE[LICENSE] file.
