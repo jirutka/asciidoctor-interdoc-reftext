@@ -53,8 +53,20 @@ module Asciidoctor::InterdocReftext
 
     protected
 
+    # @return [Array<String>] AsciiDoc file extensions (e.g. `.adoc`).
+    attr_reader :asciidoc_exts
+
     # @return [Hash<String, String>] a cache of resolved reftexts.
     attr_reader :cache
+
+    # @return [Asciidoctor::Document] the document associated with this resolver.
+    attr_reader :document
+
+    # @return [Logger] the logger to use for logging warning and errors.
+    attr_reader :logger
+
+    # @return [Boolean] whether to raise exceptions, or just log them.
+    attr_reader :raise_exceptions
 
     # @param target_path [String] the target path without a file extension.
     # @return [String, nil] file path of the *target_path*, or `nil` if not found.
