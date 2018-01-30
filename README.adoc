@@ -4,7 +4,7 @@
 :gem-name: asciidoctor-interdoc-reftext
 :gh-name: jirutka/{gem-name}
 :gh-branch: master
-:codacy-id: N/A
+:codacy-id: 7f60adeeb3fc49ee85863df2c65cd4eb
 
 ifdef::env-github[]
 image:https://travis-ci.org/{gh-name}.svg?branch={gh-branch}[Build Status, link="https://travis-ci.org/{gh-name}"]
