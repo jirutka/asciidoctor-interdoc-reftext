@@ -1,7 +1,9 @@
 require 'rspec'
+require 'rspec-html-matchers'
 
 RSpec.configure do |config|
   config.color = true
+  config.include RSpecHtmlMatchers
 end
 
 unless RUBY_ENGINE == 'jruby'

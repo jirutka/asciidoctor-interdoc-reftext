@@ -1,0 +1,3 @@
+= Document B
+
+xref:c/doc-c#[]

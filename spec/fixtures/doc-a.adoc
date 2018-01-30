@@ -1,0 +1,10 @@
+= Document A
+
+Some text.
+
+== First Section
+
+== Second Section [[sec2]]
+
+[reftext="3rd Section"]
+== Third Section
