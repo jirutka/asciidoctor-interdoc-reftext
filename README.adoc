@@ -33,7 +33,17 @@ gem install {gem-name} --pre
 
 == Usage
 
-TODO
+Just `require '{gem-name}'`.
+If you invoke Asciidoctor from command-line, use option `-r` to load the extension:
+
+[source, subs="+attributes"]
+asciidoctor -r {gem-name} README.adoc
+
+If you don’t want the extension to be automatically registered in Asciidoctor, don’t _require_ `{gem-name}`, but `asciidoctor/interdoc_reftext/processor`.
+
+IMPORTANT: Bundler automatically _requires_ all the specified gems.
+           To prevent it, use +
+           `gem '{gem-name}', require: false`.
 
 
 == License
