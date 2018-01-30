@@ -67,7 +67,8 @@ describe 'Intengration Tests' do
     context 'when extension is not active' do
       specify 'renders path of the referenced document as reftext' do
         given 'xref:doc-a#[]', extensions: []
-        should have_anchor href: 'doc-a.html', text: 'doc-a.html'
+        # Note: Asciidoctor 1.5.6 and 1.5.6.1 behaves differently.
+        should have_anchor href: 'doc-a.html', text: /doc-a/
       end
     end
   end
@@ -77,14 +78,16 @@ describe 'Intengration Tests' do
     context 'without fragment' do
       it 'renders path of the non-existent document as reftext' do
         given 'xref:missing#[]'
-        should have_anchor href: 'missing.html', text: 'missing.html'
+        # Note: Asciidoctor 1.5.6 and 1.5.6.1 behaves differently.
+        should have_anchor href: 'missing.html', text: /missing/
       end
     end
 
     context 'with non-existent fragment' do
       it 'renders path of the referenced document as reftext' do
         given 'xref:doc-a#missing[]'
-        should have_anchor href: 'doc-a.html#missing', text: 'doc-a.html'
+        # Note: Asciidoctor 1.5.6 and 1.5.6.1 behaves differently.
+        should have_anchor href: 'doc-a.html#missing', text: /doc-a/
       end
     end
   end
