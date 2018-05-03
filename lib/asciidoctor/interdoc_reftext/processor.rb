@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'asciidoctor'
 require 'asciidoctor/extensions'
 require 'asciidoctor/interdoc_reftext/inline_node_mixin'
 require 'asciidoctor/interdoc_reftext/resolver'
