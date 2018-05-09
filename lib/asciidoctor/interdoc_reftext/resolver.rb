@@ -9,12 +9,20 @@ module Asciidoctor::InterdocReftext
 
     # @param document [Asciidoctor::Document] the document associated with this resolver.
     # @param asciidoc_exts [Array<String>] AsciiDoc file extensions (e.g. `.adoc`).
-    # @param logger [Logger] the logger to use for logging warning and errors.
+    # @param logger [Logger, nil] the logger to use for logging warning and errors.
+    #   Defaults to `Asciidoctor::LoggerManager.logger` if using Asciidoctor 1.5.7+,
+    #   or `Logger.new(STDERR)` otherwise.
     # @param raise_exceptions [Boolean] whether to raise exceptions, or just log them.
     def initialize(document,
                    asciidoc_exts: ['.adoc', '.asciidoc', '.ad'],
-                   logger: ::Logger.new(STDERR),
+                   logger: nil,
                    raise_exceptions: true)
+
+      logger ||= if defined? ::Asciidoctor::LoggerManager
+        ::Asciidoctor::LoggerManager.logger
+      else
+        ::Logger.new(STDERR)
+      end
 
       @document = document
       @asciidoc_exts = asciidoc_exts.dup.freeze
