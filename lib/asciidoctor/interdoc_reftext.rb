@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-require 'asciidoctor'
-require 'asciidoctor/extensions'
+require 'asciidoctor' unless RUBY_PLATFORM == 'opal'
+require 'asciidoctor/extensions' unless RUBY_PLATFORM == 'opal'
 require 'asciidoctor/interdoc_reftext/version'
 require 'asciidoctor/interdoc_reftext/processor'
 

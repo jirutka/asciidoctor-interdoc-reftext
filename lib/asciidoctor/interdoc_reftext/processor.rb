@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-require 'asciidoctor'
-require 'asciidoctor/extensions'
+require 'asciidoctor' unless RUBY_PLATFORM == 'opal'
+require 'asciidoctor/extensions' unless RUBY_PLATFORM == 'opal'
 require 'asciidoctor/interdoc_reftext/inline_node_mixin'
 require 'asciidoctor/interdoc_reftext/resolver'
 require 'asciidoctor/interdoc_reftext/version'
@@ -34,7 +34,7 @@ module Asciidoctor::InterdocReftext
   #
   # Eh, this is really nasty... The least evil way how to achieve the goal
   # seems to be monkey-patching of the `Asciidoctor::Inline` class. This is
-  # done via {InlineNodeMixin} which is prepended into the `Inline` class on
+  # done via {InlineNodeMixin} which is prepended* into the `Inline` class on
   # initialization of this processor.
   #
   # The actual logic that resolves reflabel for the given *refid* is
@@ -43,10 +43,15 @@ module Asciidoctor::InterdocReftext
   # it into instance variable {RESOLVER_VAR_NAME} in the document, so
   # {InlineNodeMixin} can access it.
   #
-  # Prepending {InlineNodeMixin} into the `Asciidoctor::Inline` class has
+  # Prepending* {InlineNodeMixin} into the `Asciidoctor::Inline` class has
   # (obviously) a global effect. However, if {RESOLVER_VAR_NAME} is not
   # injected in the document object (e.g. extension is not active), `Inline`
   # behaves the same as without {InlineNodeMixin}.
+  #
+  # _\* If running under Opal (JavaScript), {InlineNodeMixin} is not prepended
+  # into the `Asciidoctor::Inline`, because Opal does not support that. Thus
+  # it's included and the `#text` method is overriden using poor alias method
+  # chain approach.
   #
   # NOTE: We use _reftext_ and _reflabel_ as interchangeable terms in this gem.
   class Processor < ::Asciidoctor::Extensions::TreeProcessor
@@ -65,7 +70,13 @@ module Asciidoctor::InterdocReftext
 
       # Monkey-patch Asciidoctor::Inline unless already patched.
       unless ::Asciidoctor::Inline.include? InlineNodeMixin
-        ::Asciidoctor::Inline.send(:prepend, InlineNodeMixin)
+        if RUBY_PLATFORM == 'opal'
+          # Opal does not support `Module#prepend`, so we have to fallback to
+          # `include` with poor alias method chain approach.
+          ::Asciidoctor::Inline.send(:include, InlineNodeMixin)
+        else
+          ::Asciidoctor::Inline.send(:prepend, InlineNodeMixin)
+        end
       end
     end
 

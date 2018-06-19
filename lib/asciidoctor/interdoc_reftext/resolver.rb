@@ -1,7 +1,7 @@
 # frozen_string_literal: true
+require 'asciidoctor' unless RUBY_PLATFORM == 'opal'
+require 'logger' unless RUBY_PLATFORM == 'opal'
 require 'asciidoctor/interdoc_reftext/version'
-require 'asciidoctor'
-require 'logger'
 
 module Asciidoctor::InterdocReftext
   # Resolver of inter-document cross reference texts.
@@ -20,8 +20,17 @@ module Asciidoctor::InterdocReftext
 
       logger ||= if defined? ::Asciidoctor::LoggerManager
         ::Asciidoctor::LoggerManager.logger
-      else
+      elsif defined? ::Logger
         ::Logger.new(STDERR)
+      else
+        # Fake logger for Opal.
+        # TODO: Remove after update to Asciidoctor 1.5.7 or Opal with Logger.
+        Object.new.tap do |o|
+          # rubocop: disable MethodMissing
+          def o.method_missing(_, *args)
+            STDERR.puts(*args)
+          end
+        end
       end
 
       @document = document
