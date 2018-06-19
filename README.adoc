@@ -61,7 +61,9 @@ where “The First Section” is *title* of the section with id _sec1_ in _other
 
 == Installation
 
-To install (or update to the latest version):
+=== Ruby
+
+Install {gem-name} from Rubygems:
 
 [source, subs="+attributes"]
 gem install {gem-name}
@@ -72,19 +74,45 @@ or to install the latest development version:
 gem install {gem-name} --pre
 
 
+=== Node.js
+
+Install {gem-name} from npmjs.com:
+
+[source, sh, subs="+attributes"]
+npm install --save {gem-name}
+
+
 == Usage
 
-Just `require '{gem-name}'`.
+=== CLI
+
 If you invoke Asciidoctor from command-line, use option `-r` to load the extension:
 
 [source, subs="+attributes"]
 asciidoctor -r {gem-name} README.adoc
 
-If you don’t want the extension to be automatically registered in Asciidoctor, don’t _require_ `{gem-name}`, but `asciidoctor/interdoc_reftext/processor`.
+
+=== Ruby
+
+Just `require '{gem-name}'`.
+However, if you don’t want the extension to be automatically registered in Asciidoctor, `require 'asciidoctor/interdoc_reftext/processor'` instead.
 
 IMPORTANT: Bundler automatically _requires_ all the specified gems.
            To prevent it, use +
            `gem '{gem-name}', require: false`.
+
+
+=== Node.js
+
+[source, js, subs="+attributes"]
+----
+// Load asciidoctor.js and {gem-name}.
+const asciidoctor = require('asciidoctor.js')()
+require('{gem-name}')
+
+// Convert the file to HTML.
+asciidoctor.convertFile("./README.adoc")
+----
 
 
 == License
