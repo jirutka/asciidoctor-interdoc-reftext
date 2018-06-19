@@ -48,8 +48,9 @@ module Asciidoctor::InterdocReftext
       path = resolve_target_path(path) or return nil
 
       @cache["#{path}##{fragment}".freeze] ||= begin
-        lines = read_file(path) or return nil
-        parse_reftext(lines, fragment)
+        read_file(path) do |lines|
+          parse_reftext(lines, fragment)
+        end
       rescue => e  # rubocop: disable RescueWithoutErrorClass
         raise if @raise_exceptions
         @logger.error "interdoc-reftext: #{e}"
@@ -93,9 +94,11 @@ module Asciidoctor::InterdocReftext
     end
 
     # @param path [String] path of the file to read.
-    # @return [Enumerable<String>] lines of the file.
+    # @yield [Enumerable<String>] gives lines of the file.
     def read_file(path)
-      ::IO.foreach(path)
+      ::File.open(path) do |f|
+        yield f.each_line
+      end
     end
 
     # @param input [Enumerable<String>] lines of the AsciiDoc document.
