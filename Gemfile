@@ -9,6 +9,11 @@ unless ENV.fetch('ASCIIDOCTOR_VERSION', '').empty?
   end
 end
 
+group :development do
+  # Keep in sync with version used for asciidoctor.js.
+  gem 'opal', '~> 0.11.0'
+end
+
 group :ci do
   gem 'codacy-coverage', '~> 1.1', require: false
 end

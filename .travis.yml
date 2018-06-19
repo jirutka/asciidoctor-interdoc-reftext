@@ -52,6 +52,7 @@ before_install:
 script:
   - bundle exec rake spec
   - bundle exec rake rubocop
+  - bundle exec rake build:js
 
 deploy:
   provider: rubygems

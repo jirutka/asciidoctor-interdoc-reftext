@@ -26,6 +26,10 @@ Layout/MultilineMethodCallIndentation:
 Lint/EndAlignment:
   EnforcedStyleAlignWith: variable
 
+Layout/IndentHash:
+  Exclude:
+    - Rakefile
+
 Metrics/AbcSize:
   Max: 30
 
