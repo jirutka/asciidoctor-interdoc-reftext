@@ -2,14 +2,11 @@
   "name": "asciidoctor-interdoc-reftext",
   "version": "0.3.0",
   "description": "Asciidoctor extension providing implicit (automatic) reference text (label) for inter-document cross references",
-  "main": "dist/asciidoctor-interdoc-reftext.js",
-  "files": [
-    "dist/asciidoctor-interdoc-reftext.js",
-    "LICENSE",
-    "README.adoc"
-  ],
-  "scripts": {
-    "prepublishOnly": "bundle install && bundle exec rake build:js"
+  "author": "Jakub Jirutka <jakub@jirutka.cz>",
+  "license": "MIT",
+  "homepage": "https://github.com/jirutka/asciidoctor-interdoc-reftext/",
+  "bugs": {
+    "url": "https://github.com/jirutka/asciidoctor-interdoc-reftext/issues/"
   },
   "repository": {
     "type": "git",
@@ -21,12 +18,15 @@
     "extension",
     "opal"
   ],
-  "author": "Jakub Jirutka <jakub@jirutka.cz>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jirutka/asciidoctor-interdoc-reftext/issues"
+  "main": "dist/asciidoctor-interdoc-reftext.js",
+  "files": [
+    "dist/asciidoctor-interdoc-reftext.js",
+    "LICENSE",
+    "README.adoc"
+  ],
+  "scripts": {
+    "prepublishOnly": "bundle install && bundle exec rake build:js"
   },
-  "homepage": "https://github.com/jirutka/asciidoctor-interdoc-reftext",
   "dependencies": {
     "asciidoctor.js": "^1.5.6",
     "opal-runtime": "^1.0.3"
