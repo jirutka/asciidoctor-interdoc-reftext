@@ -2,9 +2,9 @@
   "name": "asciidoctor-interdoc-reftext",
   "version": "0.3.0",
   "description": "Asciidoctor extension providing implicit (automatic) reference text (label) for inter-document cross references",
-  "main": "js/asciidoctor-interdoc-reftext.js",
+  "main": "dist/asciidoctor-interdoc-reftext.js",
   "files": [
-    "js/asciidoctor-interdoc-reftext.js",
+    "dist/asciidoctor-interdoc-reftext.js",
     "LICENSE",
     "README.adoc"
   ],

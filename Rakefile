@@ -34,7 +34,7 @@ namespace :build do
     builder.append_paths 'lib'
     builder.build 'asciidoctor/interdoc_reftext'
 
-    out_file = 'js/asciidoctor-interdoc-reftext.js'
+    out_file = 'dist/asciidoctor-interdoc-reftext.js'
 
     mkdir_p(File.dirname(out_file), verbose: false)
     File.open(out_file, 'w') do |file|
