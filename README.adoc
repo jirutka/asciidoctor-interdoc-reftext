@@ -109,11 +109,42 @@ IMPORTANT: Bundler automatically _requires_ all the specified gems.
 ----
 // Load asciidoctor.js and {gem-name}.
 const asciidoctor = require('asciidoctor.js')()
-require('{gem-name}')
+const interdocReftextExt = require('{gem-name}')
+
+// See documentation at the end of this section.
+const options = {
+  asciidocExts: ['.adoc'],
+}
+
+// Configure the extension and register it into the global registry.
+interdocReftextExt.register(asciidoctor.Extensions, options)
 
 // Convert the file to HTML.
-asciidoctor.convertFile("./README.adoc")
+asciidoctor.convertFile('./README.adoc')
 ----
+
+If you don’t want to register the extension globally, you can also pass a custom registry to the `register` function:
+
+[source, js]
+----
+// ...
+
+const registry = asciidoctor.Extensions.create()
+interdocReftextExt.register(registry, options)
+
+const html = asciidoctor.convertFile('./README.adoc', {
+  'extension_registry': registry,
+})
+----
+
+.*Options:*
+asciidocExts::
+  AsciiDoc file extensions (e.g. `.adoc`).
+  Default is `['.adoc', '.asciidoc', '.ad']`.
+
+raiseExceptions::
+  Whether to raise exceptions (`true`), or just log them (`false`).
+  Default is `true`.
 
 
 == License

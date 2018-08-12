@@ -32,12 +32,15 @@ namespace :build do
       dynamic_require_severity: :error,
     })
     builder.append_paths 'lib'
-    builder.build 'asciidoctor-interdoc-reftext'
+    builder.build 'asciidoctor/interdoc_reftext'
 
     out_file = 'js/asciidoctor-interdoc-reftext.js'
 
     mkdir_p(File.dirname(out_file), verbose: false)
-    File.binwrite out_file, builder.to_s
+    File.open(out_file, 'w') do |file|
+      template = File.read('src/asciidoctor-interdoc-reftext.tmpl.js')
+      file << template.sub('//OPAL-GENERATED-CODE//', builder.to_s)
+    end
     File.binwrite "#{out_file}.map", builder.source_map
   end
 end
