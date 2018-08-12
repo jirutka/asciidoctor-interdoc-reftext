@@ -8,6 +8,7 @@
 node_modules/
 Gemfile.lock
 package-lock.json
+yarn.lock
 *.bundle
 *.gem
 *.log
