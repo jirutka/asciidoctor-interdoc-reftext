@@ -68,7 +68,7 @@ deploy:
   - provider: npm
     email: jakub@jirutka.cz
     api_key:
-      secure: "AT2dbBLlRDHwT5T34ccS5rwJrwZ+Mhw8P1TxZIuCak5igmeKzLNcFpWDxshVTnu/jC5cb2NpQDAxBmwue0cmMhTa1Ipgz83qsJGzDQ0nIH41ZEshBju5EEDtAz9hCrRA2ZAeq6eE3o1g5OUqido4IV9AKFGophsZSDkf4GihkBzDwK+/UQ+0im2njsHtuUDeSSOqQZc7eqKB58s8kfaBfqchYrtjcwD+LC6FYlNSHmff4UYrwClSgFPQEhqDbm/7UlXMF7bZrA5YNhtJn6oZdlBTpeX6d2AWMpXERMVtyg0tAdp9k8OkcWgOjCsjbvWp8ym8jGjy/kdSa7pz5/KR1yUdijesIFyqW0AkBNmMQbgGu7hky33F2RIdLhFO8DeyTySOazf4hKsJPIfp1tkjclPOKrakexhRNknL8QfBxBEV2R/d4aURcqIecgZpvXO9iJ2RzRR7aXgJGPTSTLp/+FFVS5935OvlOTUz+3GbeoMW2eMoCpRIYtF1GkIwM1NS+M5BovD/OiVE/8lW5iiYTTaKj0sib78aG6hiac1/yrSl2+jabcNdhEl4UgERIa/vSNeASQG3Sx9Dbulwd7Supr3H1udXkHjVy7BUfa4J2te26zBBN+WytAB/StclkFagcsnfPRKg072nm72j16QHC2/OFo/5noCOl+OqK45H5vI="  # fd4a......2d63
+      secure: "GNgBRtZ/a7UNuaniApFS1ZZT4EElyMo8F0gSO6CoaGOoNM06WfHQ//UXvfjAe7bO0SaV5vY7yvwjcYn4ue+S5bo+kQ9oxH7gywlTvNg8g5m9wlXltSx8geGqjx+9HmhC0vtYEIaGq4dDzJi1sMjnx3f3qT/jTz4r5FvCOQVpfDAQ8gpbNF1v4VE2ixcRDl8oKZ4tC1njP6EDGmKW2ty/Qma9UWNhfClMKI4i31y1d4XjG+APr5/ZWRnXw2jYV/GGR6vwKRcLwh1t5FtgMpvCWnEmumD/xLBS1+zX9ZasZVK97jiLrx6wHxzOTcFHhMzexEUa1qfRKO81eI+vorR+64tCb0uYd4cr/fFHk+j6Dxm+w/qp1zfCFGypLXmPu3zSKq6J1WVyDAcOyponbUuq0AwAjcrR+KxIccYa2/cHosnuB/+my0R1tIu9PnbckuoISp1PzV2f9yRgSu5aaZCEHzY3qQLlq4ACSP0lrhAJ2UyZjaIZsxBWYzE2OwHGRjDStFVcG6pc1A7+b+D/HJLGesqtckZ8A1vgHQvDNYrqB6oTL+pLP/RMep9dk2IajPE1fp/GarBztk5DnmjYvx3ujaSbFjKYLvtoB5IuN5qreWww7ujFFU1KUpYHQQgMqdBFt82SQH9oZus/EO5DCCpAlShdVO4+jxpmAj6EJd0QLuc="  # a72f......2451
     skip_cleanup: true
     on:
       tags: true
