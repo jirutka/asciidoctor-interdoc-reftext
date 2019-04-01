@@ -1,3 +1,3 @@
 = Document B
 
-xref:c/doc-c#[]
+xref:c/doc-c.adoc#[]

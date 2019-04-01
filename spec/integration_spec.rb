@@ -31,24 +31,24 @@ describe 'Intengration Tests' do
 
     context 'without fragment' do
       it 'renders title of the referenced document as reftext' do
-        given 'xref:doc-a#[]'
+        given 'xref:doc-a.adoc#[]'
         should have_anchor href: 'doc-a.html', text: 'Document A'
       end
     end
 
     context 'with fragment' do
       it 'renders title of the referenced section with implicit id as reftext' do
-        given 'xref:doc-a#_first_section[]'
+        given 'xref:doc-a.adoc#_first_section[]'
         should have_anchor href: 'doc-a.html#_first_section', text: 'First Section'
       end
 
       it 'renders title of the referenced section with explicit id as reftext' do
-        given 'xref:doc-a#sec2[]'
+        given 'xref:doc-a.adoc#sec2[]'
         should have_anchor href: 'doc-a.html#sec2', text: 'Second Section'
       end
 
       it 'renders reftext of the referenced section with explicit reftext' do
-        given 'xref:doc-a#_third_section[]'
+        given 'xref:doc-a.adoc#_third_section[]'
         should have_anchor href: 'doc-a.html#_third_section', text: '3rd Section'
       end
     end
@@ -66,7 +66,7 @@ describe 'Intengration Tests' do
 
     context 'when extension is not active' do
       specify 'renders path of the referenced document as reftext' do
-        given 'xref:doc-a#[]', extensions: []
+        given 'xref:doc-a.adoc#[]', extensions: []
         # Note: Asciidoctor 1.5.6 and 1.5.6.1 behaves differently.
         should have_anchor href: 'doc-a.html', text: /doc-a/
       end
@@ -77,7 +77,7 @@ describe 'Intengration Tests' do
 
     context 'without fragment' do
       it 'renders path of the non-existent document as reftext' do
-        given 'xref:missing#[]'
+        given 'xref:missing.adoc#[]'
         # Note: Asciidoctor 1.5.6 and 1.5.6.1 behaves differently.
         should have_anchor href: 'missing.html', text: /missing/
       end
@@ -85,7 +85,7 @@ describe 'Intengration Tests' do
 
     context 'with non-existent fragment' do
       it 'renders path of the referenced document as reftext' do
-        given 'xref:doc-a#missing[]'
+        given 'xref:doc-a.adoc#missing[]'
         # Note: Asciidoctor 1.5.6 and 1.5.6.1 behaves differently.
         should have_anchor href: 'doc-a.html#missing', text: /doc-a/
       end
@@ -94,7 +94,7 @@ describe 'Intengration Tests' do
 
   context 'document with valid inter-document xref with reftext' do
     it 'renders provided reftext' do
-      given 'xref:doc-a#[My Title]'
+      given 'xref:doc-a.adoc#[My Title]'
       should have_anchor href: 'doc-a.html', text: 'My Title'
     end
   end

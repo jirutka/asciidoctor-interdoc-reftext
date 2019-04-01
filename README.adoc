@@ -24,7 +24,7 @@ This project is an http://asciidoctor.org/[Asciidoctor] extension providing impl
 When you define a cross reference to another document “other.adoc” _without_ a label, e.g.:
 
 ----
-xref:other#[]
+xref:other.adoc#[]
 ----
 
 Asciidoctor converts it into a plain link with the target document’s path as a text:
@@ -47,7 +47,7 @@ where “Other Document” is a *title* of the _other.adoc_.
 Similarly with cross reference to a section in another document, e.g.:
 
 ----
-xref:other#sec1[]
+xref:other.adoc#sec1[]
 ----
 
 Asciidoctor converts it in the same way as above, but this extensions converts it into:
