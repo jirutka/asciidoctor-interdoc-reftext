@@ -16,7 +16,7 @@ text (label) for inter-document cross references"
 
   s.required_ruby_version = '>= 2.1'
 
-  s.add_runtime_dependency 'asciidoctor', '~> 1.5.6'
+  s.add_runtime_dependency 'asciidoctor', '>= 1.5.6', '< 3.0'
 
   s.add_development_dependency 'corefines', '~> 1.11'
   s.add_development_dependency 'kramdown', '~> 1.16'
