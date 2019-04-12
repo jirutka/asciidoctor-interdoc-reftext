@@ -135,14 +135,7 @@ module Asciidoctor::InterdocReftext
     # @param input [Enumerable<String>, String] lines of the AsciiDoc document to load.
     # @return [Asciidoctor::Document] a parsed document.
     def asciidoc_load(input)
-      # Asciidoctor is dumb. It doesn't know enumerators and when we give it
-      # an Array, it calls #dup on it. At least it knows #readlines, so we just
-      # define it as an alias for #to_a.
-      if input.is_a?(::Enumerable) && !input.respond_to?(:readlines)
-        input.singleton_class.send(:alias_method, :readlines, :to_a)
-      end
-
-      ::Asciidoctor.load(input, @document.options)
+      ::Asciidoctor.load(input.to_a, @document.options)
     end
   end
 end
