@@ -108,7 +108,7 @@ IMPORTANT: Bundler automatically _requires_ all the specified gems.
 [source, js, subs="+attributes"]
 ----
 // Load asciidoctor.js and {gem-name}.
-const asciidoctor = require('asciidoctor.js')()
+const asciidoctor = require('@asciidoctor/core')()
 const interdocReftextExt = require('{gem-name}')
 
 // See documentation at the end of this section.
