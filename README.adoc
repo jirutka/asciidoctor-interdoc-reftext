@@ -62,6 +62,7 @@ where “The First Section” is *title* of the section with id _sec1_ in _other
 
 == Installation
 
+ifndef::npm-readme[]
 === Ruby
 
 Install {gem-name} from Rubygems:
@@ -76,6 +77,7 @@ gem install {gem-name} --pre
 
 
 === Node.js
+endif::npm-readme[]
 
 Install {gem-name} from npmjs.com:
 
@@ -85,6 +87,7 @@ npm install --save {gem-name}
 
 == Usage
 
+ifndef::npm-readme[]
 === CLI
 
 If you invoke Asciidoctor from command-line, use option `-r` to load the extension:
@@ -104,6 +107,7 @@ IMPORTANT: Bundler automatically _requires_ all the specified gems.
 
 
 === Node.js
+endif::npm-readme[]
 
 [source, js, subs="+attributes"]
 ----
