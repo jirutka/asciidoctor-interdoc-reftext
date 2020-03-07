@@ -31,7 +31,7 @@ task :readme2md do
     .load_file('README.adoc', header_footer: true, backend: 'docbook')
     .convert
   markdown = PandocRuby
-    .convert(docbook, from: :docbook, to: :markdown_github)
+    .convert(docbook, from: :docbook, to: :markdown_github, 'base-header-level': 2)
 
   File.write('README.md', markdown)
 end
