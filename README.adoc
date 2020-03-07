@@ -1,5 +1,4 @@
 = Asciidoctor Inter-doc Reference Text
-:source-language: shell
 // custom
 :gem-name: asciidoctor-interdoc-reftext
 :gh-name: jirutka/{gem-name}
@@ -67,12 +66,12 @@ ifndef::npm-readme[]
 
 Install {gem-name} from Rubygems:
 
-[source, subs="+attributes"]
+[source, sh, subs="+attributes"]
 gem install {gem-name}
 
 or to install the latest development version:
 
-[source, subs="+attributes"]
+[source, sh, subs="+attributes"]
 gem install {gem-name} --pre
 
 
@@ -92,7 +91,7 @@ ifndef::npm-readme[]
 
 If you invoke Asciidoctor from command-line, use option `-r` to load the extension:
 
-[source, subs="+attributes"]
+[source, sh, subs="+attributes"]
 asciidoctor -r {gem-name} README.adoc
 
 
