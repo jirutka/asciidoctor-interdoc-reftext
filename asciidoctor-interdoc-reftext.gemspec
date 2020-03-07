@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
 text (label) for inter-document cross references"
 
   s.files       = Dir['lib/**/*', '*.gemspec', 'LICENSE*', 'README.adoc']
-  s.has_rdoc    = 'yard'
 
   s.required_ruby_version = '>= 2.1'
 
