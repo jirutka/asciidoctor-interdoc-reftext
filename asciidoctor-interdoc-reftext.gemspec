@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = "Asciidoctor extension providing implicit (automatic) reference \
 text (label) for inter-document cross references"
 
-  s.files       = Dir['lib/**/*', '*.gemspec', 'LICENSE*', 'README*']
+  s.files       = Dir['lib/**/*', '*.gemspec', 'LICENSE*', 'README.adoc']
   s.has_rdoc    = 'yard'
 
   s.required_ruby_version = '>= 2.1'
@@ -20,6 +20,7 @@ text (label) for inter-document cross references"
 
   s.add_development_dependency 'corefines', '~> 1.11'
   s.add_development_dependency 'kramdown', '~> 1.16'
+  s.add_development_dependency 'pandoc-ruby', '~> 2.0'
   s.add_development_dependency 'rake', '~> 12.0'
   s.add_development_dependency 'rspec', '~> 3.7'
   s.add_development_dependency 'rspec-html-matchers', '~> 0.9.1'

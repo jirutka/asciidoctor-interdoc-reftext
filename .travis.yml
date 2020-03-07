@@ -44,6 +44,11 @@ jobs:
     - env: ASCIIDOCTOR_VERSION="git:master"
       rvm: *ruby-latest
 
+addons:
+  apt:
+    packages:
+      - pandoc
+
 env:
   global:
     secure: "tXxL81YrHRaD90vTdIZ6eKWGQFWAYz9WKf64/xVNZxBiSTaiyabS6/k1XvVTkJ61x389Xcl9sMMFgtP5BCxVpfdOboD1R0v9dSqssPzxIOikw1XiKTJCSWPOoYy/Z8n/jR1U4AzVzhxCDyJrv4bd5NbxegrsV9aeIB5mGrPy1Hxz+IAAZOLTCEwiwFhHMpamn7+NDWMa7WFfBdCfkxO0VOa0hXmI0ogdB+kdRM2q+24bv8zs0OwUTNyd0Y0CtG02/Ad+f8C27mS2kqRpv64NRpiFh1a0RB8Fyj4Beax7VrhxJXYNIq53bBd+ue+DHgAciDpb3fV10sdjYuCmrWlYt9yZiAPBoqfvxL7ymV/AiSLdEBnMxXtK/BnYRmjLYb3kgt4yW9Eqnzy0xsARTSLqznfaV5Mm7nCJuwu5nIePeaL6CbBewu5R64kHn360nhJsLDlzLJnrXgLk0j9+V3LEmmxBn1lYChRZjq71I5D8bOPC7QLOd2Cgx+ObDiDEWSLal5F5DXc3wnbDsDJMsmDQjPt+erAIOv7b91iWQ6znn/75x0P0Rj2WunXwluW1rBqsBeDCsCRUO9qCeJJzr5XworZgSM5vH8Ge9z8C9YG73sCniWhhVZVkN33RWVLRw0MtXqiVP6OgPjLZqPJl4wtKux6EOCLSghb6wbD4ulaGRaw="  # CODACY_PROJECT_TOKEN
@@ -56,6 +61,7 @@ script:
   - bundle exec rake spec
   - bundle exec rake rubocop
   - bundle exec rake build:js
+  - bundle exec rake readme2md
 
 deploy:
   - provider: rubygems
