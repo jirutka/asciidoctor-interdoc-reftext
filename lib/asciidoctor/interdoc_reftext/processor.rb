@@ -82,7 +82,7 @@ module Asciidoctor::InterdocReftext
 
     # @param document [Asciidoctor::Document] the document to process.
     def process(document)
-      resolver = @resolver_class.new(document, @resolver_opts)
+      resolver = @resolver_class.new(document, **@resolver_opts)
       document.instance_variable_set(RESOLVER_VAR_NAME, resolver)
       nil
     end
