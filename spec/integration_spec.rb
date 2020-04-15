@@ -64,6 +64,29 @@ describe 'Intengration Tests' do
       end
     end
 
+    # Issue #3
+    context 'when xref is inside a nested document' do
+      it 'renders title of the referenced document as reftext' do
+        given <<~ADOC
+          |===
+          a| xref:doc-a.adoc#[]
+          |===
+        ADOC
+        should have_anchor href: 'doc-a.html', text: 'Document A'
+      end
+
+      context 'with relative path' do
+        subject(:output) do
+          opts = options.except(:base_dir).merge(safe: :unsafe)
+          Asciidoctor.load_file("#{FIXTURES_DIR}/b/doc-b.adoc", opts).convert
+        end
+
+        it 'resolves path relative to the current document' do
+          should have_anchor href: '../doc-a.html', text: 'Document A'
+        end
+      end
+    end
+
     context 'when extension is not active' do
       specify 'renders path of the referenced document as reftext' do
         given 'xref:doc-a.adoc#[]', extensions: []
