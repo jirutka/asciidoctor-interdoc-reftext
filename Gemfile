@@ -17,5 +17,5 @@ group :development do
 end
 
 group :ci do
-  gem 'codacy-coverage', '~> 1.1', require: false
+  gem 'codacy-coverage', '~> 2.2', require: false
 end
