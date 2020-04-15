@@ -39,15 +39,22 @@ module Asciidoctor::InterdocReftext
       # If this node is not an inter-document cross reference...
       return if @node_name != 'inline_anchor' || @attributes['path'].nil?
 
-      # Only the top most document has the `@_interdoc_reftext_resolver` variable.
-      doc = @document
-      while doc.parent_document do
-        doc = doc.parent_document
-      end
-
-      # This variable is injected into the document by {Processor}.
-      if (resolver = doc.instance_variable_get(Processor::RESOLVER_VAR_NAME))
+      # interdoc_reftext_resolver may return nil when the extension was loaded,
+      # but is disabled for the current document.
+      if (resolver = interdoc_reftext_resolver)
         @text = resolver.call(@attributes['refid'])
+      end
+    end
+
+    # @return [Asciidoctor::InterdocReftext::Resolver, nil]
+    def interdoc_reftext_resolver
+      # This variable is injected into the document by {Processor} or this method.
+      @document.instance_variable_get(Processor::RESOLVER_VAR_NAME) || begin
+        doc = @document
+        until (resolver = doc.instance_variable_get(Processor::RESOLVER_VAR_NAME))
+          doc = doc.parent_document or return nil
+        end
+        doc.instance_variable_set(Processor::RESOLVER_VAR_NAME, resolver)
       end
     end
   end
