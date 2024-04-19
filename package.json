@@ -1,6 +1,6 @@
 {
   "name": "asciidoctor-interdoc-reftext",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Asciidoctor extension providing implicit (automatic) reference text (label) for inter-document cross references",
   "author": "Jakub Jirutka <jakub@jirutka.cz>",
   "license": "MIT",
