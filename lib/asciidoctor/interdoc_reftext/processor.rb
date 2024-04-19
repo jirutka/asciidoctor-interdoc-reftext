@@ -63,9 +63,8 @@ module Asciidoctor::InterdocReftext
     # @param resolver_class [#new] the {Resolver} class to use.
     # @param resolver_opts [Hash<Symbol, Object>] options to be passed into
     #   the resolver_class's initializer (see {Resolver#initialize}).
-    def initialize(resolver_class: Resolver, **resolver_opts)
+    def initialize(resolver_opts)
       super
-      @resolver_class = resolver_class
       @resolver_opts = resolver_opts
 
       # Monkey-patch Asciidoctor::Inline unless already patched.
@@ -82,7 +81,7 @@ module Asciidoctor::InterdocReftext
 
     # @param document [Asciidoctor::Document] the document to process.
     def process(document)
-      resolver = @resolver_class.new(document, **@resolver_opts)
+      resolver = Resolver.new(document, **@resolver_opts)
       document.instance_variable_set(RESOLVER_VAR_NAME, resolver)
       nil
     end
