@@ -1,4 +1,4 @@
-require File.expand_path('../lib/asciidoctor/interdoc_reftext/version', __FILE__)
+require File.expand_path('lib/asciidoctor/interdoc_reftext/version', __dir__)
 
 Gem::Specification.new do |s|
   s.name        = 'asciidoctor-interdoc-reftext'
