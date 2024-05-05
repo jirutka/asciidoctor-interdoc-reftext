@@ -6,7 +6,7 @@
 :codacy-id: 7f60adeeb3fc49ee85863df2c65cd4eb
 
 ifdef::env-github[]
-image:https://travis-ci.org/{gh-name}.svg?branch={gh-branch}[Build Status, link="https://travis-ci.org/{gh-name}"]
+image:https://github.com/{gh-name}/workflows/CI/badge.svg[CI Status, link=https://github.com/{gh-name}/actions?query=workflow%3A%22CI%22]
 image:https://api.codacy.com/project/badge/Coverage/{codacy-id}["Test Coverage", link="https://www.codacy.com/app/{gh-name}"]
 image:https://api.codacy.com/project/badge/Grade/{codacy-id}["Codacy Code quality", link="https://www.codacy.com/app/{gh-name}"]
 image:https://img.shields.io/gem/v/{gem-name}.svg?style=flat[Gem Version, link="https://rubygems.org/gems/{gem-name}"]
