@@ -18,7 +18,7 @@ text (label) for inter-document cross references"
   s.add_runtime_dependency 'asciidoctor', '>= 1.5.6', '< 3.0'
 
   s.add_development_dependency 'corefines', '~> 1.11'
-  s.add_development_dependency 'kramdown', '~> 1.16'
+  s.add_development_dependency 'kramdown', '~> 2.3'
   s.add_development_dependency 'pandoc-ruby', '~> 2.0'
   s.add_development_dependency 'rake', '~> 13.0'
   s.add_development_dependency 'rspec', '~> 3.7'
