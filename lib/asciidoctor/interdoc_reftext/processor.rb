@@ -67,6 +67,8 @@ module Asciidoctor::InterdocReftext
       super
       @resolver_class = resolver_class
       @resolver_opts = resolver_opts
+      # Workaround for a bug in Ruby 3.0 (see #6).
+      @resolver_opts.delete(:resolver_class)
 
       # Monkey-patch Asciidoctor::Inline unless already patched.
       unless ::Asciidoctor::Inline.include? InlineNodeMixin
